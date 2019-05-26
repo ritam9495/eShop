@@ -1,0 +1,170 @@
+/*
+SQLyog Community v12.2.4 (64 bit)
+MySQL - 5.6.21 : Database - eShop
+*********************************************************************
+*/
+
+/*!40101 SET NAMES utf8 */;
+
+/*!40101 SET SQL_MODE=''*/;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`eShop` /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+USE `eShop`;
+
+/*Table structure for table `tbl_cust` */
+
+DROP TABLE IF EXISTS `tbl_cust`;
+
+CREATE TABLE `tbl_cust` (
+  `cust_id` bigint(20) NOT NULL,
+  `cust_name` varchar(45) DEFAULT NULL,
+  `cust_add` varchar(500) DEFAULT NULL,
+  `cust_username` varchar(45) DEFAULT NULL,
+  `cust_password` varchar(145) DEFAULT NULL,
+  PRIMARY KEY (`cust_id`)
+);
+
+/*Data for the table `tbl_cust` */
+
+insert  into `tbl_cust`(`cust_id`,`cust_name`,`cust_add`,`cust_username`,`cust_password`) values 
+(101,'Ritam','Behala','rtm@abc.com','1234'),
+(102,'Anamon','Garden Reach','ana@dirac.com','1234');
+
+/*Table structure for table `tbl_sell` */
+
+DROP TABLE IF EXISTS `tbl_sell`;
+
+CREATE TABLE `tbl_sell` (
+  `sell_id` bigint(20) NOT NULL,
+  `sell_name` varchar(45) DEFAULT NULL,
+  `sell_add` varchar(500) DEFAULT NULL,
+  `sell_username` varchar(45) DEFAULT NULL,
+  `sell_password` varchar(145) DEFAULT NULL,
+  PRIMARY KEY (`sell_id`)
+);
+
+/*Data for the table `tbl_sell` */
+
+insert  into `tbl_sell`(`sell_id`,`sell_name`,`sell_add`,`sell_username`,`sell_password`) values 
+(201,'Seller1','Esplanade','esp@abc.com','1234'),
+(202,'Seller2','Chadni Chowk','cc@abc.com','1234');
+
+/*Table structure for table `tbl_prod` */
+
+DROP TABLE IF EXISTS `tbl_prod`;
+
+CREATE TABLE `tbl_prod` (
+  `prod_id` bigint(20) NOT NULL,
+  `prod_name` varchar(45) DEFAULT NULL,
+  `prod_desp` varchar(500) DEFAULT NULL,
+  `prod_mrp` bigint(45) DEFAULT NULL,
+  `prod_sell` bigint(145) DEFAULT NULL,
+  PRIMARY KEY (`prod_id`)
+);
+
+/*Data for the table `tbl_prod` */
+
+insert  into `tbl_prod`(`prod_id`,`prod_name`,`prod_desp`,`prod_mrp`,`prod_sell`) values 
+
+(301,'Jeans','Light Blue Demin Jeans',650,201),
+
+(302,'T-Shirt','White Cotton Peter-England Shirt',750,201),
+
+(303,'SD-card','16GB SanDisk SD-Card',450,202),
+
+(304,'USB Mouse','Logitech Black Optical USB Mouse',350,202);
+
+/*Table structure for table `tbl_cart` */
+
+DROP TABLE IF EXISTS `tbl_cart`;
+
+CREATE TABLE `tbl_cart` (
+  `cart_id` bigint(20) NOT NULL,
+  `cart_cust` bigint(20) DEFAULT NULL,
+  `cart_prod` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`cart_id`)
+);
+
+/*Data for the table `tbl_cart` */
+
+insert  into `tbl_cart`(`cart_id`,`cart_cust`,`cart_prod`) values 
+
+(400,100,300);
+
+/*Table structure for table `tbl_wish` */
+
+DROP TABLE IF EXISTS `tbl_wish`;
+
+CREATE TABLE `tbl_wish` (
+  `wish_id` bigint(20) NOT NULL,
+  `wish_cust` bigint(20) DEFAULT NULL,
+  `wish_prod` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`wish_id`)
+);
+
+/*Data for the table `tbl_wish` */
+
+insert  into `tbl_wish`(`wish_id`,`wish_cust`,`wish_prod`) values 
+
+(500,100,300);
+
+/*Table structure for table `tbl_ordr` */
+
+DROP TABLE IF EXISTS `tbl_ordr`;
+
+CREATE TABLE `tbl_ordr` (
+  `ordr_id` bigint(20) NOT NULL,
+  `ordr_cust` bigint(20) DEFAULT NULL,
+  `ordr_prod` bigint(20) DEFAULT NULL,
+  `ordr_sell` bigint(20) DEFAULT NULL,
+  `ordr_stat` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`ordr_id`,`ordr_prod`)
+);
+
+/*Data for the table `tbl_ordr` */
+
+insert  into `tbl_ordr`(`ordr_id`,`ordr_cust`,`ordr_prod`,`ordr_sell`,`ordr_stat`) values 
+
+(600,100,300,200,'Order Placed');
+
+/* Procedure structure for procedure `sp_addCust` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `sp_addCust` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_addCust`(
+    IN p_id bigint,
+	IN p_name varchar(45),
+    IN p_add varchar(1000),
+    IN p_email varchar(100),
+	IN p_password varchar(100)
+)
+BEGIN
+    insert into tbl_cust(
+        cust_id,
+		cust_name,
+		cust_add,
+		cust_username,
+		cust_password
+    )
+    values
+    (
+        p_id,
+		p_name,
+		p_add,
+		p_email,
+		p_password
+    );
+END */$$
+DELIMITER ;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
