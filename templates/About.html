@@ -1,0 +1,147 @@
+<html>
+	<head>
+		<style>
+			body
+			{
+				background-image: url("http://www.viva-vista.sg/wp-content/uploads/shopping-Background.jpg");
+				background-repeat: no-repeat;
+				background-position: center;
+				background-position: relative;
+			}
+			ul
+			{
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+				background-color: #333;
+			}
+			li
+			{
+				float: left;
+			}
+			li a, .dropbtn
+			{
+				display: inline-block;
+				color: white;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+			}
+
+			li a:hover, .dropdown:hover .dropbtn {
+				background-color:#555;
+			}
+
+			li.dropdown {
+				display: inline-block;
+			}
+
+			.dropdown-content {
+				display: none;
+				position: absolute;
+				background-color: #f9f9f9;
+				min-width: 160px;
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			}
+
+			.dropdown-content a {
+				color: black;
+				padding: 12px 16px;
+				text-decoration: none;
+				display: block;
+				text-align: left;
+			}
+
+			.dropdown-content a:hover {background-color: #f1f1f1}
+
+			.dropdown:hover .dropdown-content {
+				display: block;
+			}
+			.active
+			{
+				background-color: lightblue;
+			}
+			h3
+			{
+				padding: 20px 30px 20px 80px;
+				background-color: lightblue;
+				border-style: solid;
+				border-color: blue;
+				border-radius: 20px;
+			}
+			.para
+			{
+				background-color: white;
+				width: 500px;
+				border: 25px solid lightblue;
+				padding: 25px;
+				margin: 25px;
+				border-radius: 10px;
+				-webkit-transition-duration: 0.4s; /* Safari */
+				transition-duration: 1s;
+			}
+			.para:hover
+			{
+				border: 25px solid blue;
+			}
+		</style>
+	</head>
+	<body>
+		<h3>RG eShopping</h3>
+		<ul>
+		  <li><a href="/">Home</a></li>
+		  <li class="dropdown">
+			<a class="dropbtn">Seller</a>
+			<div class="dropdown-content">
+			  <a href="/SellLogIn">Existing Seller</a>
+			  <a href="/SellReg">New Seller</a>
+			</div>
+		  </li>
+		  <li class="dropdown">
+			<a class="dropbtn">Customer</a>
+			<div class="dropdown-content">
+			  <a href="/CustLogIn">Existing Customer</a>
+			  <a href="/CustReg">New Customer</a>
+			</div>
+		  </li>
+		  <li style=float:right><a class=active href="/about">About</a></li>
+		</ul>
+		
+		<center>
+			<div class="para">
+				<table>
+					<tr>
+						<td>Name:</td><td>A e-Shopping dynamic webproject</td>
+					<tr>
+					<tr>
+						<td>Softwares Used:</td><td>Python, Flask, MySQL, XAMPP, SQLYog, Jinja2, HTML5, CSS</td>
+					<tr>
+					<tr>
+						<td>Developed by:</td><td>Ritam Ganguly</td>
+					<tr>
+					<tr>
+						<td>Institution:</td><td>St. Thomas College' of Engineering and Technology</td>
+					<tr>
+					<tr>
+						<td>Address:</td><td>4, Diamond Harbour Road, Kidderpore, Kolkata- 700023</td>
+					<tr>
+					<tr>
+						<td>Stream:</td><td>Computer Science and Engineering, Batch-14, Roll-33</td>
+					<tr>
+					<tr>
+						<td>e-mail address:</td><td>ritam.ganguly@yahoo.co.in</td>
+					<tr>
+					<tr>
+						<td>Purpose:</td><td>Project for end semester vocational training</td>
+					<tr>
+				</table>
+			</div>
+		</center>
+		
+		<footer class="footer">
+            <p>&copy; Company 2016</p>
+        </footer>
+	</body>
+</html>
+	

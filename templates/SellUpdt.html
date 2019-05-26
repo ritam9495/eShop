@@ -1,0 +1,181 @@
+<html>
+	<head>
+		<style>
+			body
+			{
+				background-image: url("http://www.viva-vista.sg/wp-content/uploads/shopping-Background.jpg");
+				background-repeat: no-repeat;
+				background-position: center;
+				background-position: relative;
+			}
+			ul
+			{
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+				background-color: #333;
+			}
+			li
+			{
+				float: left;
+			}
+			li a, .dropbtn
+			{
+				display: inline-block;
+				color: white;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+			}
+
+			li a:hover, .dropdown:hover .dropbtn {
+				background-color:#555;
+			}
+
+			li.dropdown {
+				display: inline-block;
+			}
+
+			.dropdown-content {
+				display: none;
+				position: absolute;
+				background-color: #f9f9f9;
+				min-width: 160px;
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			}
+
+			.dropdown-content a {
+				color: black;
+				padding: 12px 16px;
+				text-decoration: none;
+				display: block;
+				text-align: left;
+			}
+
+			.dropdown-content a:hover {background-color: #f1f1f1}
+
+			.dropdown:hover .dropdown-content {
+				display: block;
+			}
+			.a
+			{
+				background-color: lightblue;
+			}
+			h3
+			{
+				padding: 20px 30px 20px 80px;
+				background-color: lightblue;
+				border-style: solid;
+				border-color: blue;
+				border-radius: 20px;
+			}
+			textarea
+			{
+				width: 500px;
+				padding: 12px 20px;
+				margin: 8px 0;
+				box-sizing: border-box;
+				border: 2px solid lightblue;
+				border-radius: 4px;
+				font-size: 20px;
+			}
+			input[type=text]
+			{
+				width: 350px;
+				padding: 12px 20px;
+				margin: 8px 0;
+				box-sizing: border-box;
+				border: 2px solid lightblue;
+				border-radius: 4px;
+				font-size: 20px;
+			}
+			.button {
+				border: none;
+				color: white;
+				padding: 16px 32px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				margin: 4px 2px;
+				-webkit-transition-duration: 0.4s; /* Safari */
+				transition-duration: 1s;
+				cursor: pointer;
+				width: 200px;
+				link: none;
+			}
+			.button1 {
+				background-color: white;
+				color: black;
+				border: 2px solid blue;
+				border-radius: 4px;
+				link: none;
+			}
+			.button1:hover {
+				background-color: lightblue;
+				color: white;
+			}
+			div
+			{
+				background-color: white;
+				width: 500px;
+				border: 25px solid lightblue;
+				padding: 25px;
+				margin: 25px;
+				border-radius: 10px;
+				-webkit-transition-duration: 0.4s; /* Safari */
+				transition-duration: 1s;
+			}
+			div:hover
+			{
+				border: 25px solid blue;
+			}
+		</style>
+	</head>
+	<body>
+		<h3>RG eShopping</h3>
+		<ul>
+		  <li><a href="/sell_Home">Home</a></li>
+		  <li><a href="/sell_AddProd">Add a New Product</a></li>
+		  <li><a href="/sell_Ordr">Orders</a></li>
+		  <li style=float:right><a class=a href="/logout">Sign Out</a></li>
+		</ul>
+		
+		<center>
+			<div>
+				<table>
+					<form action="/sellUpdtMRP" method="post">
+						<tr>
+							<td>Name:{{name}}</td>
+						</tr>
+						<tr>
+							<td>Description:{{desc}}</td>
+						</tr>
+						<tr>
+							<td>Price:<input type="text" name="mrp" id="mrp" placeholder="Price" value={{mrp}}></td>
+						</tr>
+						<tr>
+							<input type="hidden" name="id" value={{idp}}>
+							<td><button class="button button1">Update</button></td>
+						<tr>
+					</form>
+				</table>
+			</div>
+		<center>
+		
+		<script>
+			function verify()
+			{
+				if(document.getElementById("mail").value.length==0)
+					alert("All the fields are mandatory");
+				return;
+			}
+		</script>
+		
+		<footer class="footer">
+            <p>&copy; Company 2016</p>
+        </footer>
+	</body>
+</html>
+	
